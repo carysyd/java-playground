@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-playground
+spec:
+  selector:
+    matchLabels:
+      app: java-playground-app
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: java-playground-app
+    spec:
+      containers:
+      - name: java-playground-app
+        image: carysyd/java-playground
+        ports:
+        - containerPort: 8080
+          name: api-server
